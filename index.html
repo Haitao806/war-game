@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="朝鲜战争战略游戏 - 选择阵营，指挥部队，赢得胜利">
+    <title>朝鲜战争战略游戏</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div id="loading-screen" class="loading-screen" aria-live="polite">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p id="loading-text">正在准备战场...</p>
+        </div>
+    </div>
+
+    <!-- 阵营选择界面 -->
+    <section id="faction-selection" class="faction-selection" aria-label="阵营选择">
+        <h2>Pick your Faction</h2>
+        <div class="faction-buttons">
+            <button class="faction-button us" data-faction="us" aria-label="选择美国阵营">
+                <img src="images/us.png" alt="美国国旗" class="faction-flag">
+                <span class="faction-name">US</span>
+            </button>
+            <button class="faction-button rok" data-faction="rok" aria-label="选择韩国阵营">
+                <img src="images/rok.png" alt="韩国国旗" class="faction-flag">
+                <span class="faction-name">ROK</span>
+            </button>
+            <button class="faction-button dprk" data-faction="dprk" aria-label="选择朝鲜阵营">
+                <img src="images/dprk.png" alt="朝鲜国旗" class="faction-flag">
+                <span class="faction-name">DPRK</span>
+            </button>
+            <button class="faction-button pla" data-faction="pla" aria-label="选择中国阵营">
+                <img src="images/pla.png" alt="中国国旗" class="faction-flag">
+                <span class="faction-name">PLA</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- 游戏主界面 -->
+    <main id="game-interface" class="game-interface" style="display: none;">
+        
+        <div id="top-bar" class="top-bar">
+            <div class="resource-info">
+            </div>
+            <div class="turn-info">
+                <span>Round: <span id="current-turn">1</span></span>
+                <span id="action-points-display">Action Points: -/-</span>
+                <span>Faction: <span id="current-faction">-</span></span>
+            </div>
+            <div class="game-controls-top">
+                <button id="pause-button" class="pixel-button top-button" aria-label="暂停">
+                    ❚❚
+                </button>
+                 <button id="dev-mode-toggle" class="pixel-button top-button dev-button" style="font-size: 10px;">Dev</button>
+            </div>
+        </div>
+
+        <!--包裹地图和侧边栏的容器 -->
+        <div class="main-content-area">
+            <div id="map-container" class="map-container">
+            </div>
+
+            <aside id="sidebar" class="sidebar">
+                <div id="selected-unit-info">
+                    Select a unit
+                </div>
+            </aside>
+        </div>
+
+        <div id="action-buttons-corner" class="action-buttons-corner">
+            <img id="selected-unit-icon" src="images/placeholder.png" alt="选中单位" style="display: none;"> 
+            <button id="move-button" class="pixel-button action-button" aria-label="移动单位">
+            </button>
+            <button id="attack-button" class="pixel-button action-button" aria-label="攻击敌人">
+            </button>
+            <button id="capture-button" class="pixel-button action-button" aria-label="占领地点">
+            </button>
+        </div>
+
+        <div id="end-turn-button-corner" class="end-turn-button-corner">
+            <button id="end-turn-button" class="pixel-button end-turn-button" aria-label="结束当前回合">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32px" height="32px">
+                    <path d="M6 18l8.5-6L6 6v12zm2-8.14L11.03 12 8 14.14V9.86zM16 6h2v12h-2z"/>
+                </svg>
+            </button>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 
